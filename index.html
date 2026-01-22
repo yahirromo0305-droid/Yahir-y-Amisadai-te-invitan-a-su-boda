@@ -301,7 +301,7 @@ footer{
   <button onclick="prevSlide()" style="
     position:absolute;
     top:50%;
-    left:10px;
+    left:-45px;
     transform:translateY(-50%);
     background:rgba(0,0,0,0.6);
     color:#fff;
@@ -319,7 +319,7 @@ footer{
   <button onclick="nextSlide()" style="
     position:absolute;
     top:50%;
-    right:10px;
+    right:-45px;
     transform:translateY(-50%);
     background:rgba(0,0,0,0.6);
     color:#fff;
@@ -357,6 +357,7 @@ footer{
     if (current < 1) current = total;
     showSlide(current);
   }
+showSlide(1);
 
 </script>
 
@@ -484,6 +485,7 @@ setInterval(()=>{
 
 </body>
 </html>
+
 
 
 
