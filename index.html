@@ -237,33 +237,89 @@ footer{
 
 <section>
   <h2>Galería</h2>
-  <div class="divider"><span>✦</span></div>
-<div style="
-  display:flex;
-  gap:15px;
-  overflow-x:auto;
-  scroll-snap-type:x mandatory;
-  -webkit-overflow-scrolling:touch;
-  padding-bottom:10px;
+  <div id="slider" style="
+  position:relative;
+  width:280px;
+  height:380px;
+  margin:0 auto;
 ">
 
-  <!-- FOTO 1 -->
-  <img src="galeria.jpeg" alt=""
-       style="flex:0 0 auto; width:280px; border-radius:18px; scroll-snap-align:center; box-shadow:0 10px 25px rgba(0,0,0,0.25);">
+  <img id="slide1" src="galeria1.jpeg" style="
+    width:100%;
+    border-radius:18px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.25);
+    position:absolute;
+    top:0;
+    left:0;
+    opacity:1;
+    transition:opacity 0.6s ease;
+  ">
 
-  <!-- FOTO 2 -->
-  <img src="galeria2.jpeg" alt=""
-       style="flex:0 0 auto; width:280px; border-radius:18px; scroll-snap-align:center; box-shadow:0 10px 25px rgba(0,0,0,0.25);">
+  <img id="slide2" src="galeria2.jpeg" style="
+    width:100%;
+    border-radius:18px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.25);
+    position:absolute;
+    top:0;
+    left:0;
+    opacity:0;
+    transition:opacity 0.6s ease;
+  ">
 
-  <!-- FOTO 3 -->
-  <img src="galeria3.jpeg" alt=""
-       style="flex:0 0 auto; width:280px; border-radius:18px; scroll-snap-align:center; box-shadow:0 10px 25px rgba(0,0,0,0.25);">
+  <img id="slide3" src="galeria3.jpeg" style="
+    width:100%;
+    border-radius:18px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.25);
+    position:absolute;
+    top:0;
+    left:0;
+    opacity:0;
+    transition:opacity 0.6s ease;
+  ">
 
-  <!-- FOTO 4 -->
-  <img src="galeria4.jpeg" alt=""
-       style="flex:0 0 auto; width:280px; border-radius:18px; scroll-snap-align:center; box-shadow:0 10px 25px rgba(0,0,0,0.25);">
+  <img id="slide4" src="galeria4.jpeg" style="
+    width:100%;
+    border-radius:18px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.25);
+    position:absolute;
+    top:0;
+    left:0;
+    opacity:0;
+    transition:opacity 0.6s ease;
+  ">
 
-  </div>
+  <!-- Botón siguiente -->
+  <button onclick="nextSlide()" style="
+    position:relative;
+    margin-top:300px;
+    background:#000;
+    color:#fff;
+    border:none;
+    padding:8px 16px;
+    border-radius:20px;
+    cursor:pointer;
+  ">
+    Siguiente
+  </button>
+
+</div>
+
+<script>
+  let current = 1;
+  const total = 4;
+
+  function nextSlide() {
+    const currentImg = document.getElementById("slide" + current);
+    currentImg.style.opacity = 0;
+
+    current = current + 1;
+    if (current > total) current = 1;
+
+    const nextImg = document.getElementById("slide" + current);
+    nextImg.style.opacity = 1;
+  }
+</script>
+
 </section>
 
 <section>
@@ -388,6 +444,7 @@ setInterval(()=>{
 
 </body>
 </html>
+
 
 
 
